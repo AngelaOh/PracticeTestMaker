@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "887820018951",
+    "firebase_url": "https://standardstestmaker.firebaseio.com",
+    "project_id": "standardstestmaker",
+    "storage_bucket": "standardstestmaker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887820018951:android:cb8e52df302ee496",
+        "android_client_info": {
+          "package_name": "com.example.standardstestmaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887820018951-onf3crc7p1pl2usuavme2dm2jvsc0d53.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.standardstestmaker",
+            "certificate_hash": "9aa2de7472dfaf36c3e6cdae437d30934fca7ac3"
+          }
+        },
+        {
+          "client_id": "887820018951-sibuk72iodvcq945usmenmo89nctafkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-g8kWQD16BEZcK-CF6_tDN2U1KC28deA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887820018951-sibuk72iodvcq945usmenmo89nctafkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
