@@ -14,9 +14,16 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField 'String', "ApiKey", GoogleApiKey
+            resValue 'string', "api_key", GoogleApiKey
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "ApiKey", GoogleApiKey
+            resValue 'string', "api_key", GoogleApiKey
+//          In JAVA ACCESS WITH: String apiKey = BuildConfig.ApiKey;
         }
     }
 }
