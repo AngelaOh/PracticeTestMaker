@@ -24,7 +24,7 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText nameInput;
     private EditText emailInput;
 
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button submitButton;
     private Button showDataButton;
+    private Button updateNameButton;
 
     // Keys
     public static final String KEY_NAME = "name";
@@ -58,8 +59,11 @@ public class MainActivity extends AppCompatActivity {
 
         submitButton = findViewById(R.id.submit_button);
         showDataButton = findViewById(R.id.show_data_button);
+        updateNameButton = findViewById(R.id.update_name_button);
 
+        updateNameButton.setOnClickListener(this);
 
+        // ADDS DATA TO FIRESTORE but overwrites previous things
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,6 +137,36 @@ public class MainActivity extends AppCompatActivity {
                     String email = documentSnapshot.getString(KEY_EMAIL);
                     showData.setText("this has been changed: " + name + " " + email);
                 }
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId() == R.id.update_name_button) {
+            updateMyName();
+        }
+
+    }
+
+
+    // UPDATES DATA IN FIRESTORE
+    public void updateMyName() {
+        String name = nameInput.getText().toString().trim();
+
+        Map<String, Object> data = new HashMap<>();
+        data.put(KEY_NAME, name);
+
+        journalRef.update(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(MainActivity.this, "UPDATED SUCCESSFULLY", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
             }
         });
     }
